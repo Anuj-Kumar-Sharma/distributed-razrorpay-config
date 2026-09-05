@@ -42,3 +42,13 @@ app:
     delivery:
       redis-key: "webhook-retry"
       poll-batch-size: 100
+
+---
+spring:
+  config:
+    activate:
+      on-profile: k8s
+  datasource:
+    url: jdbc:postgresql://postgres.razorpay-core.svc.cluster.local:5432/razorpay-operations-db
+    username: operations_user
+    password: ${OPERATIONS_DB_PASSWORD}

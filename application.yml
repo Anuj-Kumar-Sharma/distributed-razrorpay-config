@@ -65,3 +65,35 @@ app:
       order: orders.events
       refund: refund.events
       settlement: settlement.events
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: k8s
+  data:
+    redis:
+      host: redis.razorpay-core.svc.cluster.local
+      port: 6379
+  kafka:
+    bootstrap-servers: kafka.razorpay-core.svc.cluster.local:9092
+  cloud:
+    discovery:
+      enabled: false
+
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+
+management:
+  zipkin:
+    tracing:
+      endpoint: http://zipkin.razorpay-core.svc.cluster.local:9411/api/v2/spans
+
+MERCHANT_SERVICE_URI: http://merchant-service
+PAYMENT_SERVICE_URI: http://payment-service
+VAULT_SERVICE_URI: http://vault-service
+OPERATIONS_SERVICE_URI: http://operations-service
