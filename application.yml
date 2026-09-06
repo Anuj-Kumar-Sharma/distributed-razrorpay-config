@@ -84,6 +84,10 @@ spring:
   cloud:
     discovery:
       enabled: false
+  task:
+    scheduling:
+      pool:
+        size: 4
 
 eureka:
   client:
