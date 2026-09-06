@@ -92,6 +92,8 @@ management:
   zipkin:
     tracing:
       endpoint: http://zipkin.razorpay-core.svc.cluster.local:9411/api/v2/spans
+      connect-timeout: 5s
+      read-timeout: 5s
 
 MERCHANT_SERVICE_URI: http://merchant-service
 PAYMENT_SERVICE_URI: http://payment-service
