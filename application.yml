@@ -57,6 +57,9 @@ logging:
   level:
     org.apache.kafka.clients: WARN
     org.apache.kafka.common: WARN
+    zipkin2.reporter: DEBUG
+    org.springframework.boot.zipkin: DEBUG
+    io.micrometer.tracing: DEBUG
 
 app:
   kafka:
@@ -92,8 +95,6 @@ management:
   zipkin:
     tracing:
       endpoint: http://zipkin.razorpay-core.svc.cluster.local:9411/api/v2/spans
-      connect-timeout: 5s
-      read-timeout: 5s
 
 MERCHANT_SERVICE_URI: http://merchant-service
 PAYMENT_SERVICE_URI: http://payment-service
